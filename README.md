@@ -1,2 +1,5 @@
-# modelx
-Modelling Editor
+# ModelX
+
+Hack-like JSON editor. Fast, easy, mobile friendly.
+
+
