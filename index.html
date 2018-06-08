@@ -98,7 +98,7 @@ function edit(model, id) {
         text = value.toString();
         break;
     }
-  	return el('span', key + ': ',
+    return el('span', key + ': ',
       el('span.value', { click : e => select(path.concat([[key, value]])) }, text));
   }
 
