@@ -99,10 +99,10 @@ class Path extends React.Component {
 class Editor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = props.model ? {
       model : props.model,
       path : [ ['root', props.model ] ]
-    };
+    } : { };
   }
 
   navigate(path) {
@@ -119,7 +119,7 @@ class Editor extends React.Component {
     const updateModelFromFile = file => {
       let reader = new FileReader();
       reader.onload = e => {
-        model = JSON.parse(e.target.result);
+        const model = JSON.parse(e.target.result);
         this.setState({ path : [ [ file.name, model ] ] });
       };
       reader.readAsText(file);
@@ -149,23 +149,43 @@ class Editor extends React.Component {
   }
 
   render() {
+    const sourceCodeLink = () =>
+      <a href="https://github.com/AlexAtNet/modelx">source code</a>;
+    const featuresLink = () =>
+      <a href="https://github.com/AlexAtNet/modelx/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aclosed+is%3Aenhancement">features</a>;
+    const issuesLink = () =>
+      <a href="https://github.com/AlexAtNet/modelx/issues">issues</a>;
     return (
       <div id="editor"
         onDrop={e => this.onDrop(e)}
-         onDragOver={e => this.onDragOver(e)}>
-        <Path path={this.state.path}
-          onNavigate={path => this.navigate(path)} />
-        <Properties path={this.state.path}
-          onNavigate={path => this.navigate(path)} />
+        onDragOver={e => this.onDragOver(e)}>
+        {
+          this.state.path ? (
+            <Path path={this.state.path}
+              onNavigate={path => this.navigate(path)} />
+          ) : null
+        }
+        {
+          this.state.path ? (
+            <Properties path={this.state.path}
+              onNavigate={path => this.navigate(path)} />
+          ) : (
+            <div style={{ padding : '1rem' }}>
+              <h1>Minimalistic JSON editor</h1>
+              <p>Drag'n'drop a JSON file on this page, browse and update it,
+                and click <i className="fas fa-copy"></i> to copy the result
+                into the clipboard when you finish.</p>
+              <p>{sourceCodeLink()} ~ {featuresLink()} ~ {issuesLink()}</p>
+            </div>
+          )
+        }
       </div>
     );
   }
 }
-
-var model = { widget : { name : "widget", width : 10, height : 10 } };
   
 ReactDOM.render(
-  <Editor model={model}/>,
+  <Editor />,
   document.getElementById('root')
 );
   

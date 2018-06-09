@@ -2,6 +2,7 @@
   "name": "modelx",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alexatnet.github.io/modelx/",
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -11,6 +12,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
