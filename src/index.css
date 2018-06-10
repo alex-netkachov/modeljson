@@ -11,8 +11,8 @@ body, html, #root {
 #editor .path ul li:not(:first-child):before { content: '.'; margin: 0 .7rem 0 0; }
 #editor .path ul li span:hover { text-decoration: underline; cursor: pointer; }
 #editor .props { padding: .5rem; }
-#editor .props li { margin: 0; padding: 0; overflow: hidden; white-space: nowrap; }
-#editor .props li span.value:hover { text-decoration: underline; cursor: pointer; }
+#editor .props div.value { margin: 0; padding: 0; overflow: hidden; white-space: nowrap; }
+#editor .props div.value:hover { text-decoration: underline; cursor: pointer; }
 #editor input { font-size: 1rem; width: 100%; }
 #editor textarea { font-size: 1rem; width: 100%; }
   

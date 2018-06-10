@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://alexatnet.github.io/modelx/",
   "dependencies": {
+    "@material-ui/core": "^1.2.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"
