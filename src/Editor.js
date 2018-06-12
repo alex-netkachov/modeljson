@@ -8,8 +8,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import { Dropbox } from 'dropbox';
 
-import queryString from 'query-string';
-
 import Path from './Path.js';
 import Properties from './Properties.js';
 
@@ -72,9 +70,9 @@ export default class Editor extends React.Component {
 
     // model : { location : null, root : null, path : null }
     // dropbox : { accessKey : null, path : '/', folders : [], files : [] }
-    const qs = queryString.parse(window.location.hash.substr(1));
-    if (qs.access_token) {
-      localStorage.dropboxAccessToken = qs.access_token;
+    const [, accessToken ] = window.location.hash.match(/access_token=([^&]+)/) || [];
+    if (accessToken) {
+      localStorage.dropboxAccessToken = accessToken;
       this.dropboxReadDir([]);
     }
   }
