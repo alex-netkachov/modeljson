@@ -5,6 +5,9 @@
   "homepage": "https://alexatnet.github.io/modelx/",
   "dependencies": {
     "@material-ui/core": "^1.2.0",
+    "@material-ui/icons": "^1.1.0",
+    "dropbox": "^4.0.5",
+    "query-string": "^6.1.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"

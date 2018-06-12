@@ -15,7 +15,8 @@ export default class Property extends React.Component {
   
     update(value) {
       this.setState({ value : value });
-      this.props.obj[this.props.label] = value;
+      this.props.model[this.props.property] = value;
+      this.props.onChange();
     }
   
     render() {
